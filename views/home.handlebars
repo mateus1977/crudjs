@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Usuários</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h2 class="text-center mb-0">Lista de Usuários</h2>
+            </div>
+            <div class="card-body">
+                {{#each users}}
+                    <div class="mb-4 p-3 border rounded bg-light">
+                        <p><strong>Nome:</strong> {{this.nome}}</p>
+                        <p><strong>Sobrenome:</strong> {{this.sobrenome}}</p>
+                        <div class="d-flex gap-2">
+                            <a href="/edit/{{this.id}}" class="btn btn-warning">Editar</a>
+                            <form action="/delete/{{this.id}}" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Excluir</button>
+                            </form>
+                        </div>
+                    </div>
+                {{/each}}
+
+                <div class="text-center mt-4">
+                    <a href="/create" class="btn btn-primary">Novo Usuário</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
